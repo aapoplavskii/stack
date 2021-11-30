@@ -18,6 +18,7 @@ namespace Stack
                 Console.WriteLine($"{otusDictionary.Get(3)}");
 
                 otusDictionary.Resize(40);
+                //123
 
                
             }
