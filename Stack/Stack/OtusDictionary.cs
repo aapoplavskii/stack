@@ -13,7 +13,7 @@ namespace Stack
         public OtusDictionary(int size)
         {
             arrayvalue = new Dictionary<int, string>(size);
-            //123
+            //12345
         }
 
        public void Add(int key, string value)
