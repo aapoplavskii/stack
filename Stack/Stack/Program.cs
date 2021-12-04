@@ -16,9 +16,11 @@ namespace Stack
                 
                 
                 otusDictionary.Add(2234, "1");
-                otusDictionary.Add(2235, null);
+                //otusDictionary.Add(2235, null);
 
-                Console.WriteLine($"{otusDictionary.Get(100)}");
+                Console.WriteLine($"{otusDictionary.Get(26)}");
+
+                Console.WriteLine($"{otusDictionary[26].value}");
 
             }
             catch (Exception ex)

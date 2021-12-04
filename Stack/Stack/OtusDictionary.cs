@@ -7,11 +7,16 @@ namespace Stack
     class OtusDictionary
     {
         Node[] arraynode;
-
         public OtusDictionary(int size)
         {
             arraynode = new Node[size];
 
+        }
+
+        public Node this[int key]
+        {
+            get { return arraynode[key]; }
+            set { arraynode[key] = value; }
         }
 
         public void Add(int key, string value)
