@@ -12,23 +12,14 @@ namespace Stack
                 OtusDictionary otusDictionary = new OtusDictionary(32);
 
                 otusDictionary.Add(0, "111");
-                otusDictionary.Add(1, "222");
-                otusDictionary.Add(2, null);
+                otusDictionary.Add(26, "222");
+                
+                
+                otusDictionary.Add(2234, "1");
+                otusDictionary.Add(2235, null);
 
-                Console.WriteLine($"{otusDictionary.Get(3)}");
+                Console.WriteLine($"{otusDictionary.Get(100)}");
 
-                otusDictionary.Resize(40);
-                //123
-
-               
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            catch (NullReferenceException e)
-            {
-                Console.WriteLine(e.Message);
             }
             catch (Exception ex)
             {

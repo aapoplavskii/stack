@@ -1,56 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stack
 {
     class OtusDictionary
     {
-        Dictionary<int, string> arrayvalue;
+        Node[] arraynode;
 
         public OtusDictionary(int size)
         {
-            arrayvalue = new Dictionary<int, string>(size);
-            //12345
+            arraynode = new Node[size];
+
         }
 
-       public void Add(int key, string value)
+        public void Add(int key, string value)
         {
-            try
+            Node node = new Node(key, value);
+
+            var index = key % arraynode.Length;
+
+            if (arraynode[index] != null)
             {
-                arrayvalue.Add(key, value);
+                Resize(node);
+                Console.WriteLine($"Массив увеличен в два раза. Новый размер составляет - {arraynode.Length}");
+                index = key % arraynode.Length;
+                arraynode[index] = node;
             }
-            catch(ArgumentException)
-            {
-                throw new ArgumentException($"Ошибка добавления! Элемент с ключом - {key} уже существует");
-            }
-                      
+
+            if (value != null)
+                arraynode[index] = node;
+            else
+                throw new Exception("Вставляемое значение не может быть пустым!");
+
         }
 
-        public string Get(int key)
+
+        public string Get(int index)
         {
-            try
-            {
-                return arrayvalue[key];
-            }
-            catch(NullReferenceException)
-            {
-                throw new NullReferenceException($"Элемента с индексом {key} не существует!");
-            }
+            if (index > arraynode.Length - 1)
+
+                throw new Exception($"Запрашиваемый индекс выходит за пределы массива! Максимальный индекс - {arraynode.Length - 1}");
+
+            if (arraynode[index]==null)     
+            
+                throw new Exception($"Элемента с индексом {index} не существует!");
+
+            return arraynode[index].value;
+
         }
-
-        public void Resize(int sizenew)
+        private void Resize(Node node)
         {
-            Dictionary<int, string> arrayvalueNew = new Dictionary<int, string>(sizenew);
+            Node[] arraynodeNew = new Node[arraynode.Length*2];
 
-            for (int i = 0; i < arrayvalue.Count; i++)
+            foreach (var itemarray in arraynode)
             {
+                if (itemarray != null)
+                {
 
-                arrayvalueNew[i] = arrayvalue[i];
+                    var index = itemarray.key % arraynodeNew.Length;
 
+                    arraynodeNew[index] = itemarray;
+
+                }
             }
+
+            arraynode = arraynodeNew;
 
         }
 
