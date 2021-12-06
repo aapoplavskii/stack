@@ -17,10 +17,12 @@ namespace Stack
                 
                 otusDictionary.Add(2234, "1");
                 //otusDictionary.Add(2235, null);
+                otusDictionary[50] = "555";
 
                 Console.WriteLine($"{otusDictionary.Get(26)}");
 
-                Console.WriteLine($"{otusDictionary[26].value}");
+                Console.WriteLine($"{otusDictionary[26]}");
+                Console.WriteLine($"{otusDictionary[50]}");
 
             }
             catch (Exception ex)

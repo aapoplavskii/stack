@@ -13,10 +13,10 @@ namespace Stack
 
         }
 
-        public Node this[int key]
+        public string this[int key]
         {
-            get { return arraynode[key]; }
-            set { arraynode[key] = value; }
+            get { return Get(key); }
+            set { Add(key, value); }
         }
 
         public void Add(int key, string value)
